@@ -1,0 +1,14 @@
+textarea {
+  resize: none;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0;
+  padding: 0;
+}
+
+.newpost-modal {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.105); /* Ajusta el color y la opacidad según tus necesidades */
+}

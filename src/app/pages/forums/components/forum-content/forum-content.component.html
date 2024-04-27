@@ -1,0 +1,35 @@
+<section class="forum p-5 h-full relative">
+  <div class="forum-container flex flex-col gap-4 h-full">
+    <h1>Forums:</h1>
+    <p>Join and participate in various threads created by different users</p>
+    <div class="flex flex-row flex-wrap gap-4 pb-3">
+      <button
+        (click)="toggleNewPostModal()"
+        class="flex items-center bg-indigo-900 text-slate-50 gap-1 px-4 py-1.5 rounded-2xl">
+        Create new post
+        <mat-icon class="text-xl w-0 h-0 mb-1" fontIcon="add_circle_outline"></mat-icon>
+      </button>
+      <button
+        class="flex items-center border-[1px] border-slate-800 bg-slate-100 text-slate-950 gap-1 px-4 py-1.5 rounded-2xl">
+        Favorites
+        <mat-icon class="text-xl w-0 h-0 mb-1.5" fontIcon="star_border"></mat-icon>
+      </button>
+      <button
+        class="flex items-center border-[1px] border-slate-800 bg-slate-100 text-slate-950 gap-1 px-4 py-1.5 rounded-2xl">
+        Order by
+        <mat-icon class="text-2xl w-0 h-0 mb-2" fontIcon="keyboard_arrow_down"></mat-icon>
+      </button>
+      <button
+        class="flex items-center border-[1px] border-slate-800 bg-slate-100 text-slate-950 gap-1 px-4 py-1.5 rounded-2xl">
+        Topics
+        <mat-icon class="text-2xl w-0 h-0 mb-2" fontIcon="keyboard_arrow_down"></mat-icon>
+      </button>
+    </div>
+    <app-post-list class="forms-container" [posts]="posts"></app-post-list>
+    <app-newpost-modal
+      (close)="showNewPostModal = false"
+      class="absolute left-0 top-0 z-40 w-full h-full"
+      *ngIf="showNewPostModal"
+    ></app-newpost-modal>
+  </div>
+</section>

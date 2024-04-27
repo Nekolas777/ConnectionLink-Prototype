@@ -1,0 +1,42 @@
+h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0;
+  padding: 0;
+  font-family: inherit; /* Cambia esto a la fuente que prefieras */
+}
+
+.app-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 350px 1fr;
+  grid-template-areas:
+    "toolbar toolbar"
+    "sidebar main-content";
+  min-height: 100vh;
+  height: 100%;
+}
+
+.toolbar {
+  grid-area: toolbar;
+}
+
+.sidebar-content {
+  grid-area: sidebar;
+  background-color: #FFFFFF;
+}
+
+.main-content {
+  grid-area: main-content;
+  min-height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "toolbar"
+    "main-content";
+    min-height: 100vh;
+  }
+
+}

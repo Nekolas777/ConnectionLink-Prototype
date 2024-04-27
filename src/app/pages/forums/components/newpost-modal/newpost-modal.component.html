@@ -1,0 +1,60 @@
+<div class="newpost-modal h-full flex items-center relative">
+  <div class="relative bg-white z-20 shadow-lg w-10/12 max-w-4xl mx-auto flex flex-col justify-center px-5 py-8 gap-5">
+    <div class="flex flex-row justify-between">
+      <h1 class="text-start">Create a new post</h1>
+      <mat-icon
+        (click)="onClose()"
+        class="cursor-pointer text-xl w-0 h-0 mb-1.5"
+        fontIcon="cancel"></mat-icon>
+    </div>
+    <p class="text-slate-500">Complete the form to publish your post</p>
+    <form class="flex flex-col w-full" [formGroup]="form" (ngSubmit)="submitForm()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Name">
+        <mat-error *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email">
+        <mat-error *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+          Email is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Subject</mat-label>
+        <input matInput formControlName="subject" placeholder="Subject">
+        <mat-error *ngIf="form.controls['subject'].invalid && form.controls['subject'].touched">
+          Subject is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Description"></textarea>
+        <mat-error *ngIf="form.controls['description'].invalid && form.controls['description'].touched">
+          Description is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Publication Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="publication_date" placeholder="Publication Date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.controls['publication_date'].invalid && form.controls['publication_date'].touched">
+          Publication Date is required
+        </mat-error>
+      </mat-form-field>
+
+      <div class="btn-container flex flex-row w-full gap-5">
+        <button class="flex-1" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Publish</button>
+        <button class="flex-1" mat-raised-button color="none" type="reset">Clear</button>
+      </div>
+    </form>
+  </div>
+</div>
